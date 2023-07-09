@@ -22,20 +22,20 @@ tasks.named('test') {
     useJUnitPlatform()
 }
 
-//일반 Jar 생성
-//task buildJar(type: Jar) {
-//    manifest {
-//        attributes 'Main-Class': 'ms.embed.EmbedTomcatSpringMain'
-//    }
-//    with jar
-//}
+// 일반 Jar 생성
+task buildJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'ms.ssu.embed.EmbedTomcatSpringMain'
+    }
+    with jar
+}
 
-//Fat Jar 생성
-//task buildFatJar(type: Jar) {
-//    manifest {
-//        attributes 'Main-Class': 'hello.embed.EmbedTomcatSpringMain'
-//    }
-//    duplicatesStrategy = DuplicatesStrategy.WARN
-//    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
-//    with jar
-//}
+// Fat Jar 생성
+task buildFatJar(type: Jar) {
+    manifest {
+        attributes 'Main-Class': 'ms.ssu.embed.EmbedTomcatSpringMain'
+    }
+    duplicatesStrategy = DuplicatesStrategy.WARN
+    from { configurations.runtimeClasspath.collect { it.isDirectory() ? it : zipTree(it) } }
+    with jar
+}
